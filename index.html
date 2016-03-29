@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+      $.getJSON("http://cooper-union-search-proxy.herokuapp.com/twitter/search/popsicle?count=100", function(response){
+
+        console.log(response.statuses.length)
+
+        console.log(response.statuses[0].user.profile_image_url);
+        $("#basic").append("<img src=" + response.statuses[0].user.profile_image_url + ">");
+
+
+        for (var i = 1; i <= 100; i ++) {
+
+	         //console.log(profile_image_url);
+           $("#basic").append("<img src=" + response.statuses[i].user.profile_image_url + ">");
+}
+/*  var text = "Yeah, Saige she is a killer queen green bean bruiser, \ that Sally John Apple Saige Corny Bellagio Brueger Bull.";
+var myName = "Saige";
+var hits = [];
+hits.push("Saige");
+hits[0];
+
+for(var text = 0; text.length; text++) {
+    if(text[i] === "S") {
+        for (var hits = text; (hits >= i + myName.length); hits++);
+
+    }
+};
+if(hits.length === 0) {
+  console.log("Your name wasn't found!");
+} else {
+    console.log(hits);
+}
+*/
+
+      });
+    </script>
+
+      <style>
+      #basic {
+        width: 820px;
+        margin-top: 70px;
+      }
+      #basic img {
+
+        width: 75px;
+      }
+      .pops img {
+        margin-top: 70px;
+        margin-left: 120px;
+        width: 500px;
+
+      }
+      #intro {
+        font-family: georgia;
+        font-size: 2em;
+        text-align: center;
+        width: 760px;
+        color: pink;
+
+      }
+
+
+
+
+      </style>
+  </head>
+  <body>
+    <div id="intro">
+      <p>These are the 100 most recent popsicle tweeters.</p>
+    </div>
+    <div id="basic"></div>
+
+    <div class= "pops">
+      <p><img src="http://bargelato.com/img/photos/home.jpg"></p>
+    </div>
+
+
+
+  </body>
+</html>
